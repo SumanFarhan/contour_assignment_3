@@ -6,9 +6,7 @@ const App = () => {
     age: "",
     email: ""
   })
- 
-  // const [age,setAge]=useState("")
-  // const [email,setEmail]=useState("")
+ const [item,setItem]=useState([])
   const add = (event) => {
     const {name,value}  = event.target;
     setObj((preValue) => {
@@ -19,10 +17,11 @@ const App = () => {
       }
     })
   }
-  // const addName=(event)=>{setName(event.target.value)}
-  // const addAge=(event)=>{setAge(event.target.value)}
-  // const addEmail=(event)=>{setEmail(event.target.value)
-  // }
+  const addBtn=(()=>{
+    setItem((olditem)=>{
+      return[...olditem,obj]
+    })
+  })
   return (
     <>
       <form>
@@ -36,12 +35,17 @@ const App = () => {
           <input type="email" value={obj.email} name="email" onChange={add} />
         </label>
       </form>
-      <button type="submit">Submit</button>
-      <ol>
-        <li>{obj.name}</li>
-        <li>{obj.age}</li>
-        <li>{obj.email}</li>
-      </ol>
+      <button type="submit" onClick={addBtn}>Submit</button>
+      {item.map(()=>{
+        return(
+          <ol>
+          <li>{obj.name}</li>
+          <li>{obj.age}</li>
+          <li>{obj.email}</li>
+        </ol>
+        )
+      })}
+
     </>
   )
 }
