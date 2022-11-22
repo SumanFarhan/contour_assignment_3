@@ -21,6 +21,7 @@ const App = () => {
     setItem((olditem)=>{
       return[...olditem,obj]
     })
+    add("")
   })
   return (
     <>
@@ -36,12 +37,12 @@ const App = () => {
         </label>
       </form>
       <button type="submit" onClick={addBtn}>Submit</button>
-      {item.map(()=>{
+      {item.map((value)=>{
         return(
           <ol>
-          <li>{obj.name}</li>
-          <li>{obj.age}</li>
-          <li>{obj.email}</li>
+          <li>{value.name}</li>
+          <li>{value.age}</li>
+          <li>{value.email}</li>
         </ol>
         )
       })}
