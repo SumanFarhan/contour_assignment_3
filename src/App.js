@@ -6,20 +6,20 @@ const App = () => {
     age: "",
     email: ""
   })
- const [item,setItem]=useState([])
+  const [item, setItem] = useState([])
   const add = (event) => {
-    const {name,value}  = event.target;
+    const { name, value } = event.target;
     setObj((preValue) => {
       console.log(preValue)
-      return{
+      return {
         ...preValue,
-        [name]:value
+        [name]: value
       }
     })
   }
-  const addBtn=(()=>{
-    setItem((olditem)=>{
-      return[...olditem,obj]
+  const addBtn = (() => {
+    setItem((olditem) => {
+      return [...olditem, obj]
     })
     add("")
   })
@@ -37,13 +37,13 @@ const App = () => {
         </label>
       </form>
       <button type="submit" onClick={addBtn}>Submit</button>
-      {item.map((value)=>{
-        return(
+      {item.map((value) => {
+        return (
           <ol>
-          <li>{value.name}</li>
-          <li>{value.age}</li>
-          <li>{value.email}</li>
-        </ol>
+            <li>{value.name}</li>
+            <li>{value.age}</li>
+            <li>{value.email}</li>
+          </ol>
         )
       })}
 
