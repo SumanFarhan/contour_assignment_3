@@ -46,25 +46,33 @@
   height: 8%;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom,#05386B  5%, #408c99 100%);
+	background:linear-gradient(to bottom,#05386B  70%, #408c99 100%);
 	background-color:#05386B;
 }
 .users{
   display: flex;
   justify-content: center;
+  margin-top: 40px;
+  color: #EDF5E1;
+  height: 310px;
+  overflow-y: scroll;
 }
+::-webkit-scrollbar{
+  display: none;
+}
+
 table{
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 90%;
+  width: 75%;
 }
 
 td{
-  border: 1px solid #dddddd;
+  border:3px solid #05386B;
   text-align: left;
-  /* padding: 8px; */
+  padding: 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: #05386B ;
 }

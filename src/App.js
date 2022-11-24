@@ -5,7 +5,7 @@ const App = () => {
   const [obj, setObj] = useState({
     name: "",
     age: "",
-    email: ""
+    email: []
   })
   const [item, setItem] = useState([])
   const add = (event) => {
@@ -22,8 +22,8 @@ const App = () => {
     setItem((olditem) => {
       return [...olditem, obj]
     })
-    add("")
   })
+
   return (
     <>
       <div className="main">
@@ -42,31 +42,17 @@ const App = () => {
             </form>
             <button type="submit" className='myButton' onClick={addBtn}>ADD</button>
           </div>
-          {/* <table className='items'>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Delete</td>
-            </tr>
-            <tr>
-              <td>Alfreds</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Delete</td>
-            </tr>
-          </table> */}
           <div className='users'>
             <table>
-              {item.map((value) => {
+              {item.map((value,index) => {
                 return (
-                  <tr>
+                  <tr 
+                  key={index}
+                  id={index}
+                  >
                     <td>{value.name}</td>
                     <td>{value.age}</td>
                     <td>{value.email}</td>
-                    <td>
-                      <button type="submit" className='myButton' onClick={addBtn}>Delete</button>
-                    </td>
                   </tr>
                 )
               })}
