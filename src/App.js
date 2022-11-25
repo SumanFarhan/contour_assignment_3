@@ -5,13 +5,12 @@ const App = () => {
   const [obj, setObj] = useState({
     name: "",
     age: "",
-    email: []
+    email: ""
   })
   const [item, setItem] = useState([])
   const add = (event) => {
     const { name, value } = event.target;
     setObj((preValue) => {
-      console.log(preValue)
       return {
         ...preValue,
         [name]: value
@@ -20,13 +19,25 @@ const App = () => {
   }
   const addBtn = (() => {
     setItem((olditem) => {
-      return [...olditem, obj]
-    })
+      let data = [...olditem];
+      const isEmail = data.find(value=>value.email === obj.email);
+      if(!isEmail){
+        return [...olditem, obj]
+      }
+      else{
+        return( 
+          alert("Email Invalid")
+          // document.getElementById("test")=test
+    )}
+        
+    }
+      ) 
   })
 
   return (
     <>
       <div className="main">
+        {/* <p id='test'>Email Invalid</p> */}
         <div className="centerDiv">
           <div className='inputField'>
             <form>
@@ -44,11 +55,11 @@ const App = () => {
           </div>
           <div className='users'>
             <table>
-              {item.map((value,index) => {
+              {item.map((value, index) => {
                 return (
-                  <tr 
-                  key={index}
-                  id={index}
+                  <tr
+                    key={index}
+                    id={index}
                   >
                     <td>{value.name}</td>
                     <td>{value.age}</td>
