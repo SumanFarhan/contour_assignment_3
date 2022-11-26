@@ -55,7 +55,7 @@
   justify-content: center;
   margin-top: 40px;
   color: #EDF5E1;
-  /* height: 525px; */
+  height: 525px;
   overflow-y: scroll;
 }
 ::-webkit-scrollbar{
@@ -78,4 +78,7 @@ td{
 
 tr:nth-child(odd) {
   background-color: #05386B ;
+}
+#demo{
+  color: red;
 }

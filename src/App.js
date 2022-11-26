@@ -18,26 +18,19 @@ const App = () => {
     })
   }
   const addBtn = (() => {
-    setItem((olditem) => {
-      let data = [...olditem];
-      const isEmail = data.find(value=>value.email === obj.email);
-      if(!isEmail){
+    let data = [...item];
+    const isEmail = data.find(value => value.email == obj.email);
+    {
+      !isEmail ? setItem((olditem) => {
         return [...olditem, obj]
-      }
-      else{
-        return( 
-          alert("Email Invalid")
-          // document.getElementById("test")=test
-    )}
-        
+      }) : alert("Email Invalid")
     }
-      ) 
   })
 
   return (
     <>
       <div className="main">
-        {/* <p id='test'>Email Invalid</p> */}
+        <p id='demo'></p>
         <div className="centerDiv">
           <div className='inputField'>
             <form>
@@ -59,8 +52,7 @@ const App = () => {
                 return (
                   <tr
                     key={index}
-                    id={index}
-                  >
+                    id={index}>
                     <td>{value.name}</td>
                     <td>{value.age}</td>
                     <td>{value.email}</td>
