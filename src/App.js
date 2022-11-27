@@ -20,17 +20,14 @@ const App = () => {
   const addBtn = (() => {
     let data = [...item];
     const isEmail = data.find(value => value.email == obj.email);
-    {
-      !isEmail ? setItem((olditem) => {
+    {!isEmail ? setItem((olditem) => {
         return [...olditem, obj]
-      }) : alert("Email Invalid")
-    }
+      }) : alert("Email already exist")}
   })
 
   return (
     <>
       <div className="main">
-        <p id='demo'></p>
         <div className="centerDiv">
           <div className='inputField'>
             <form>
